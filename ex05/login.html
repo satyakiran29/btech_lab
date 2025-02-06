@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Validation</title>
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            errorMessage.style.display = "none";
+            errorMessage.textContent = "";
+
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Both fields are required!";
+                return false;
+            }
+
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(username)) {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Please enter a valid email address.";
+                return false;
+            }
+            if (password.length < 6) {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Password must be at least 6 characters long.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+
+<style>
+    body{
+padding-top: 200px;
+background-color: yellow;
+
+}
+
+h2{ 
+    color: blue;
+
+}
+
+.container{
+    text-align: center;
+    background-color: rgba(0, 255, 55, 0.47);
+    border-radius: 5px;
+
+}
+.submit:hover{
+  border-color: rgb(255, 5, 5);
+  
+}
+.username{
+    border-radius: 10px;
+    
+}
+
+.submit{
+    border-radius: 15px;
+    background-color: blue;
+    color: rgb(255, 255, 255);
+    padding: 20px 25px;
+    border-radius: 20px;
+}
+</style>
+</head>
+<body>
+
+    
+
+   <center><h2>Login Form</h2></center> 
+   <div class="main">
+    <div class="container">
+        <img src="assets/profile.png" height="150" width="150" alt="profile">
+    <form id="loginForm" onsubmit="return validateForm()" method="POST">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" class="username" name="username"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" class="username" name="password"><br><br>
+
+        <button type="submit" class="submit">Login</button>
+    </form>
+
+    <p id="error-message" style="color: red; display: none;"></p>
+    </div>
+</div>
+</body>
+</html>

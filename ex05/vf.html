@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Form Validation</title>
+    <script>
+        function validateForm() {
+            let name = document.myform.name.value;
+            let password = document.myform.password.value;
+
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+        }
+    </script>
+
+    <style>
+        body{
+padding-top: 200px;
+}
+
+h1{ 
+    color: blue;
+
+}
+.container{
+    text-align: center;
+    background-color: rgba(4, 138, 255, 0.337);
+    border-radius: 15px;
+}
+button:hover{
+  border-color: rgb(255, 5, 5);
+  
+}
+button{
+    background-color: blue;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 50px;
+}
+    </style>
+</head>
+<body>
+   <center> <h2>JS Validate Form</h2></center>
+    <div class="main">
+     
+    <div class ="container">
+    
+    <form name="myform" onsubmit="return validateForm()">
+        Name: <input type="text"placeholder="Enter username" name="name"><br><br>
+        Password: <input type="password" placeholder="Password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
