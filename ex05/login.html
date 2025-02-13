@@ -18,7 +18,7 @@
                 return false;
             }
 
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             if (!emailPattern.test(username)) {
                 errorMessage.style.display = "block";
                 errorMessage.textContent = "Please enter a valid email address.";
@@ -29,7 +29,6 @@
                 errorMessage.textContent = "Password must be at least 6 characters long.";
                 return false;
             }
-
             return true;
         }
     </script>
