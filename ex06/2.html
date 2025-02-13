@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Dynamic question answer generation</title>
+        <style>
+            .question-answer{
+                margin-bottom: 15px;
+            }
+            .question{
+                color: tomato;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Dynamic question and answer generator</h2>
+        <div id ="qa-container"></div>
+        <script>
+            const questionAndAnswers=
+            [
+                {
+                    question:"What is the capital of France?",
+                    answer: "paris"
+                },
+                {
+                    question:"what is 2+2?",
+                    answer: "4"
+                },
+                {
+                    question: "what is the color of the sky?",
+                    answer:"blue"
+                },
+                {
+                    question: "what is the color of the grass?",
+                    answer:"green"
+                },
+                {
+                    question: "what is the color of the sun?",
+                    answer:"yellow"
+                }
+
+
+            ];
+            function generateQA(){
+            const container = document.getElementById('qa-container');
+            questionAndAnswers.forEach((qa,index)=>{
+                const qaDiv = document.createElement('div');
+                qaDiv.classList.add('question-answer');
+                const questionElement = document.createElement('p');
+                questionElement.classList.add('question');
+                questionElement.textContent = `Q${index+1}: ${qa.question}`;
+
+                const answerElement = document.createElement('p');
+                answerElement.classList.add('answer');
+                answerElement.textContent = `A${index+1}:${qa.answer}`;
+               
+                qaDiv.appendChild(questionElement);
+                qaDiv.appendChild(answerElement);
+
+                container.appendChild(qaDiv);
+            });
+
+        }
+        generateQA();
+        </script>
+    </body>
+</html>
