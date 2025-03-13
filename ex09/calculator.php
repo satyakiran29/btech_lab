@@ -17,4 +17,7 @@ switch ($op) {
         return "Invalid operator";
         break;    
 }
+}
+
 echo calculator(5, 10, "div");
+?>
