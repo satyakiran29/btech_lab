@@ -33,61 +33,15 @@
         }
     </script>
 
-
-<style>
-    body{
-padding-top: 200px;
-background-color: yellow;
-
-}
-
-h2{ 
-    color: blue;
-
-}
-
-.container{
-    text-align: center;
-    background-color: rgba(0, 255, 55, 0.47);
-    border-radius: 5px;
-
-}
-.submit:hover{
-  border-color: rgb(255, 5, 5);
-  
-}
-.username{
-    border-radius: 10px;
-    
-}
-
-.submit{
-    border-radius: 15px;
-    background-color: blue;
-    color: rgb(255, 255, 255);
-    padding: 20px 25px;
-    border-radius: 20px;
-}
-</style>
-</head>
 <body>
+<center><h2>Login page </h2></center>
+<form name ="" onsubmit="return validateForm()">
+    <fieldset>
+        username<input type="text" id="username" name="username" required><br><br>
+        password: <input type="password" id="password" name="password" required><br><br>
+        <button type="submit" class="submit">Submit</button>
 
-    
-
-   <center><h2>Login Form</h2></center> 
-   <div class="main">
-    <div class="container">
-        <img src="assets/profile.png" height="150" width="150" alt="profile">
-    <form id="loginForm" onsubmit="return validateForm()" method="POST">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" class="username" name="username"><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" class="username" name="password"><br><br>
-
-        <button type="submit" class="submit">Login</button>
-    </form>
-
+    </fieldset>
     <p id="error-message" style="color: red; display: none;"></p>
     </div>
 </div>
