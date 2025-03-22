@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: yellowgreen;
+            text-align: center;
+        }
+        .par {
+            width: 80%;
+            border: 1px solid red;
+            border-radius: 10px;
+            padding: 5px;
+            color: blue;
+            display: block;
+            margin: auto;
+        }
+        nav {
+            background-color: yellowgreen;
+            padding: 10px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        footer {
+            background-color: yellowgreen;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.php">Resiter</a>
+        <a href="login.html">Login</a>
+       
+    </nav>
+
+    <center><h1>Register</h1></center>
+
+    <div class="container">
+        <form method="post" action="users.php">
+            <label>Email:</label>
+            <input class="par" type="email" name="email" required><br><br>
+
+            <label>Password:</label>
+            <input class="par" type="password" name="password" required><br><br>
+
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025, By satyakiran 💻</p>
+    </footer>
+
+</body>
+</html>
