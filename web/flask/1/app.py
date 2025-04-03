@@ -1,17 +1,26 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
+import sqlite3
 import re
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_PORT'] = 3306  # Change to 3306 if needed
-app.config['MYSQL_DB'] = 'form2'
 
-mysql = MySQL(app)
+DATABASE = "form2.db"
+
+def create_table():
+    with sqlite3.connect(DATABASE) as conn:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                password TEXT NOT NULL
+            )
+        ''')
+        conn.commit()
+
+create_table()
 
 @app.route('/form', methods=['GET', 'POST'])
 def form():
@@ -19,28 +28,23 @@ def form():
         return render_template('form.html')
 
     if request.method == 'POST':
-     
-        if 'name' not in request.form or 'email' not in request.form or 'password' not in request.form:
-            return "Error: Missing form fields!", 400
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('password')
 
-        name = request.form['name']
-        email = request.form['email']
-        password = request.form['password']
-
-
+        # Validate email format
         if not re.match(r'[^@]+@[^@]+\.[^@]+', email):
             return "Invalid email format!", 400
 
         try:
-            cursor = mysql.connection.cursor()
-            cursor.execute('''INSERT INTO users (name, email, password) VALUES (%s, %s, %s)''', (name, email, password))
-            mysql.connection.commit()
-            cursor.close()
-
+            with sqlite3.connect(DATABASE) as conn:
+                cursor = conn.cursor()
+                cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
+                conn.commit()
             return redirect(url_for('success'))
 
-        except Exception as e:
-            return f"Database Error: {str(e)}", 500  
+        except sqlite3.IntegrityError:
+            return "Error: Email already exists!", 400
 
 @app.route('/success')
 def success():
