@@ -1,0 +1,13 @@
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background: #555;
+}

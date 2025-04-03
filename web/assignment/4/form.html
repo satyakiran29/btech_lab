@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+    <style>
+        .container{
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: yellowgreen;
+        }
+        .par{
+            width: 82%;
+            border: 1px solid rgb(255, 0, 0);
+            border-radius: 10px;
+            padding: 5px;
+           color: rgb(21, 9, 255);
+        }
+
+        nav{
+            background-color: yellowgreen;
+            padding: 10px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        footer{
+            background-color: yellowgreen;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+     </style>   
+    <body>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="form.php">Form</a>
+            <a href="about.php">About</a>
+         </nav>   
+        <center><h1>Form</h1></center>
+
+        <div class="container"
+        <form method="post" action="form.php">
+           Sura Name: <input class="par" type="text" name="name" required><br><br>
+            Name: <input class="par" type="text" name="name" required><br><br>
+            Email: <input  class="par" name="email" required><br><br>
+            Phone: <input class="par" name="phone" required><br><br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+        </div>
+
+        <footer>
+            <center><p>&copy; 2025, By satyakiran💻</p></center>
+        </footer>
+    </body>
+</html>
+
