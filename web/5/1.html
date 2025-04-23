@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>5/1</title>
+        <style>
+            .error {
+                color: red;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            function validateLogin(event) {
+                event.preventDefault();
+
+                const username = document.myform.name.value;
+                const password = document.myform.password.value;
+                const errorDiv = document.getElementById("error");
+
+                errorDiv.innerHTML = "";
+
+                if (username === "" || password === "") {
+                    errorDiv.innerHTML = "Username and password cannot be empty.";
+                    return false;
+                }
+
+                alert("Login successful!");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to the Login Page</h1>
+        <p>Please enter your credentials to log in.</p>
+    <form name="myform"  method="post" onsubmit="return validateLogin(event)">
+        <h2>Login</h2>
+        <div id="error" class="error"></div>
+        <label for="name">Username:</label>
+        <input type="text" name="name" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+   </body>
+</html>

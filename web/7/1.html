@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>7/1</title>
+        <style>
+            .question {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .answer {
+                font-size: 18px;
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>dynamic question and answer</h2>
+        <div id="qa"></div>
+
+        <script>
+            const questionsAndAnswers = [
+            { question: "What is the capital of France?", answer: "The capital of France is Paris." },
+            { question: "What is 2 + 2?", answer: "2 + 2 equals 4." },
+            { question: "What is the largest planet in our solar system?", answer: "The largest planet is Jupiter." }
+            ];
+
+            let qaContent = "";
+            questionsAndAnswers.forEach(qa => {
+            qaContent += `
+                <div class="question">${qa.question}</div>
+                <div class="answer">${qa.answer}</div>
+            `;
+            });
+
+            document.getElementById("qa").innerHTML = qaContent;
+        </script>
+    </body>
+
+</html>

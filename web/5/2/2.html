@@ -1,0 +1,44 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Login Form</h2>
+        <form id="loginform" onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <span id="usernameerror" style="color: red;"></span><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <span id="passworderror" style="color: red;"></span><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            function validateLogin() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const usernameerror = document.getElementById("usernameerror");
+    const passworderror = document.getElementById("passworderror");
+
+    usernameerror.innerHTML = "";
+    passworderror.innerHTML = "";
+    let isvalid = true;
+    const emailpattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+   if(!emailpattern.test(username)) {
+        usernameerror.innerHTML = "Please enter a valid email address.";
+        isvalid = false;
+    }
+    if(password.length < 8) {
+        passworderror.innerHTML = "Password must be at least 8 characters long.";
+        isvalid = false;
+    }
+    if(isvalid) {
+        alert("Login successful!");
+        
+    }
+    document.getElementById("loginform").addEventListener("submit", validateLogin);
+}
+        </script>
+    </body>
+</html>
