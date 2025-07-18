@@ -1,0 +1,17 @@
+ASSUME CS:CODE
+DATA SEGMENT
+org 3000h
+        N1 DB 34H, 56H
+DATA ENDS
+CODE SEGMENT
+START:MOV AX, DATA
+       MOV DS, AX
+       MOV AX, 45F3H
+       MOV BX, AX
+       MOV AL,ds:[3000h]
+       MOV BL,ds:[3001h]
+       MOV SI, OFFSET N1
+       MOV CL, [SI]
+       HLT
+CODE ENDS
+END START
