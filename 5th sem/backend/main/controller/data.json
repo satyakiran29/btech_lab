@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Arjun Reddy",
+      "email": "arjun.reddy@example.com",
+      "age": 28,
+      "gender": "Male",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Sita Mahalakshmi",
+      "email": "sita.mah@example.com",
+      "age": 24,
+      "gender": "Female",
+      "isActive": false
+    },
+    {
+      "id": 4,
+      "name": "Lakshmi Devi",
+      "email": "lakshmi.d@example.com",
+      "age": 29,
+      "gender": "Female",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Bala",
+      "email": "bala@example.com",
+      "age": 5,
+      "gender": "Male",
+      "isActive": false
+    },
+    {
+      "name": "Krishna",
+      "email": "krishna@example.com",
+      "age": 25,
+      "gender": "Male",
+      "isActive": false,
+      "id": 6
+    },
+    {
+      "name": "Krishna",
+      "email": "krishna@example.com",
+      "age": 25,
+      "gender": "Male",
+      "isActive": false,
+      "id": 7
+    }
+  ]
+}
