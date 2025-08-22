@@ -1,0 +1,23 @@
+ASSUME CS:CODE, DS:DATA
+DATA SEGMENT
+        NUM1 DW 5678H
+        NUM2 DW 1234H
+        RES  DW 08H DUP(0)
+DATA ENDS
+CODE SEGMENT
+START:MOV AX,DATA
+      MOV DS,AX
+      XYZ MACRO
+      MOV AX,NUM1
+      MOV BX,NUM2
+      ENDM
+      XYZ
+      ADD AX,BX
+      MOV RES,AX
+      XYZ
+      SUB AX,BX
+      MOV RES+04H,AX
+      HLT
+      CODE ENDS
+END START
+
