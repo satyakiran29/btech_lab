@@ -1,0 +1,18 @@
+ASSUME CS:CODE
+DATA SEGMENT
+    N1 DB 45H 
+    RES BW 01H DUP(0)
+    DATA ENDS
+CODE SEGMENT
+START: MOV AX, DATA
+       MOV DS, AX
+       MOV AL, N1
+       MOV AH,AL
+       MOV CL,04H
+       SHR AL,CL
+       SHR AH,CL
+       OR AX,3030H
+         MOV RES,AX
+       HLT
+CODE ENDS
+END START  
