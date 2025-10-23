@@ -1,0 +1,17 @@
+ASSUME CS:CODE
+DATA SEGMENT
+    ORG 2000h
+    LIST DB 12H,34H,56H,78H,99H
+DATA ENDS
+EXTRA SEGMENT
+CODE  SEGMENT
+    START: MOV AX,DATA
+           MOV DS,DX
+           MOV ES,AX
+           MOV CX,05H
+           MOV SI,OFFSET LIST
+           MOV BI,OFFSET RES
+           REP MOVSB
+           HLT
+CODE ENDS
+END START                   
